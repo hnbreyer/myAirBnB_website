@@ -1,0 +1,69 @@
+
+    <!--Modal sign up-->
+    <div id="id02" class="modal">
+        <span onclick="document.getElementById('id02').style.display='none'"
+      class="close" title="Close Modal">&times;</span>
+      
+        <!-- Modal Content -->
+        <form action="/register-user" class="needs-validation modal-content animate" method="POST" enctype="multipart/form-data" novalidate>
+          <div class="imgcontainer">
+            Sign up
+          </div>
+      
+          <div class="container">
+            <div>
+            <label for="validationCustom01"><b>First name</b></label>
+            <input type="text" class="form-control fname" id="validationCustom01" placeholder="First name" name="fname" required/>
+
+              <div class="invalid-feedback">
+                Please enter your first name.
+              </div>
+            </div>
+            <div>
+            <label for="validationCustom02"><b>Last name</b></label>
+            <input type="text" class="form-control lname" id="validationCustom02" placeholder="Last name" name="lname" required/>
+              <div class="invalid-feedback">
+                Please enter your last name.
+              </div>
+            </div>
+            <div>
+            <label for="validationCustom03"><b>E-mail</b></label>
+            <input type="text" class="form-control signup-email" id="validationCustom03" placeholder="Email address" name="email" required/>
+
+              <div class="invalid-feedback">
+                Please enter your email.
+              </div>
+      
+              </div>
+            <label for="validationCustom04"><b>Password</b></label>
+            <input type="password" class="form-control password" id="psw" placeholder="Create a password" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required/>
+            <small id="passwordHelpBlock" class="form-text text-muted">
+            Your password must be at least 8 characters long and contain letters and numbers.
+            </small>
+
+             <div id="message">
+              <h6>Password must contain the following:</h6>
+              <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+              <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+              <p id="number" class="invalid">A <b>number</b></p>
+              <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+            </div>
+
+            
+      
+            <button class="modal-btn" type="submit">Sign up</button>
+
+          </div>
+      
+          <div class="container" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('id02').style.display='none'" class="modal-btn cancelbtn">Cancel</button>
+            <span class="psw">Already have an account? <a href="#">Login</a></span>
+          </div>
+
+      </div>
+
+        </form>
+
+
+
+       <script src="../javascript/signup.js"></script>
