@@ -361,7 +361,7 @@ section{
     color: rgba(41, 50, 65, 0.7);
     letter-spacing: 2px;
     font-family: 'Open-sans', sans-serif;
-    /*resize: none;*/ 
+    resize: none; 
 }
 
 /*Featured places*/
