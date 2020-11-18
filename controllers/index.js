@@ -3,6 +3,7 @@ var nodemailer = require("nodemailer");
 var multer = require("multer");
 const app = express.Router();
 var upload = multer();
+const Usr = require('../models/usersModel');
 
 app.get("/", function(req, res){
     res.render('home', {layout: false});
@@ -23,6 +24,10 @@ app.get("/owner_upload", function(req, res){
 app.get("/confirmation", function(req, res){
     res.render('confirmation', {layout: false});
 });
+
+app.get("/signup-error", function(req, res){
+    res.render('signup-error', {layout: false});
+})
 
 //email setup
 var transporter = nodemailer.createTransport({
@@ -63,8 +68,32 @@ app.post("/register-user", upload.none(), (req, res) => {
     });
     //EMAIL STUFF//
 
+    //Create new user
+    const usr = new  Usr({
+        fname: req.body.fname,
+        lname: req.body.lname,
+        email: req.body.email,
+        psw:   req.body.psw
+    });
+    usr.save((err, newUser) =>{
+        if(err){
+            res.render('/signup-error', {
+                errorMessage: 'Error creating user'
+            });
+        } else {
+            res.render('dashboard', {data: FORM_DATA, layout: false}); 
+        }
+    });
+
  
-    res.render('dashboard', {data: FORM_DATA, layout: false});
+    //res.render('dashboard', {data: FORM_DATA, layout: false});
 });
+
+
+//create user route
+/*
+app.post('/register-user', (req, res) => {
+    res.send('User Created!');
+});*/
 
 module.exports = app;
