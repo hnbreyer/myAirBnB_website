@@ -54,8 +54,6 @@ app.get("/dashboard", function(req, res){
     var someData = FORM_DATA;
     res.render('dashboard', {
         data: someData,
-        //fname: req.body.fname,
-        //lname: req.body.lname,
         layout: false
     });
 });
@@ -63,9 +61,6 @@ app.get("/dashboard", function(req, res){
 //register-user is the action of the form
 app.post("/register-user", upload.none(), (req, res) => {
     const FORM_DATA = req.body;
-   // const DATA_RECEIVED = "Welcome, " + FORM_DATA.fname + " " + FORM_DATA.lname + " " + "Your email is " + FORM_DATA.email;
-    //const JSON_DATA = JSON.stringify(FORM_DATA);
-    //console.log(JSON_DATA);
 
     //EMAIL STUFF//
     var mailOptions = {
@@ -84,11 +79,7 @@ app.post("/register-user", upload.none(), (req, res) => {
     });
     //EMAIL STUFF//
 
-    //res.send(DATA_RECEIVED);
-    //res.send(JSON_DATA);
-    //res.sendFile(path.join(__dirname, "/views/register-confirmation.hbs"));
-    //res.render('dashboard', FORM_DATA);
-    //res.send(FORM_DATA);
+ 
     res.render('dashboard', {data: FORM_DATA, layout: false});
 });
 
