@@ -69,7 +69,7 @@ app.post("/register-user", upload.none(), (req, res) => {
     //EMAIL STUFF//
 
     //Create new user
-    const usr = new  Usr({
+    const usr = new Usr({
         fname: req.body.fname,
         lname: req.body.lname,
         email: req.body.email,
@@ -77,7 +77,7 @@ app.post("/register-user", upload.none(), (req, res) => {
     });
     usr.save((err, newUser) =>{
         if(err){
-            res.render('/signup-error', {
+            res.render('/confirmation', {
                 errorMessage: 'Error creating user'
             });
         } else {
