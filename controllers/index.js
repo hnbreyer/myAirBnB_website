@@ -1,6 +1,8 @@
 const express = require("express");
 var nodemailer = require("nodemailer");
-const router = express.Router();
+var multer = require("multer");
+const app = express.Router();
+var upload = multer();
 
 app.get("/", function(req, res){
     res.render('home', {layout: false});
@@ -65,4 +67,4 @@ app.post("/register-user", upload.none(), (req, res) => {
     res.render('dashboard', {data: FORM_DATA, layout: false});
 });
 
-module.exports = router;
+module.exports = app;
