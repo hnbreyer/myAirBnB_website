@@ -2,7 +2,7 @@
         <div class="container">
             <nav class="nav">
                 <a href="/" class="logo">
-                    <img src="./images/logosml-removebg-preview.png" alt="">
+                    <img src="/images/logosml-removebg-preview.png" alt="">
                 </a>
                 <div class="hamburger-menu">
                     <i class="fas fa-bars"></i>
@@ -15,20 +15,21 @@
                     <li class="nav-item">
                         <a href="/owner_upload" class="nav-link">Add listing</a>
                     </li>
+                    {{#if username}}
+                        Welcome {{username}}! | <a href="/logout">Log out</a>
+                    {{else}}
                     <li class="nav-item">
-                        <!-- <a href="#" class="nav-link sign-up">Sign up</a> -->
-                        <button class="modal-btn" onclick="document.getElementById('id02').style.display='block'">Sign up</button>
+                        <a href="/signup" class="nav-link sign-up">Sign up</a>
+                        <!--<button class="modal-btn" onclick="document.getElementById('id02').style.display='block'">Sign up</button> -->
                     </li>
                     <li class="nav-item">
-                        <!-- <a href="#" class="nav-link login">Login</a> -->
-                        <button class="modal-btn" onclick="document.getElementById('id01').style.display='block'">Login</button>
+                        <a href="/login" class="nav-link login">Login</a>
+                        <!-- <button class="modal-btn" onclick="document.getElementById('id01').style.display='block'">Login</button> -->
                     </li>
+                    {{/if}}
                 </ul>
                 
             </nav>
-
-    {{> login}}
-    {{> signup}}
 
         </div>
     </header>

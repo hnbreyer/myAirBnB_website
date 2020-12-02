@@ -1,16 +1,21 @@
 const mongoose = require('mongoose');
 
+mongoose.Promise = require("bluebird");
+
 const userSchema = new mongoose.Schema({
+    "username": {
+        type: String,
+        unique: true},
     "fname": String,
     "lname": String,
     "email": {
-        "type": String,
-        "unique": true},
+        type: String,
+        unique: true},
     "psw": String,
-    "role": {
-        "type": String,
-        "default": 'user' 
+    "isAdmin": {
+        type: Boolean,
+        default: false
     }
 });
 
-module.exports = mongoose.model('users', userSchema);
+module.exports = mongoose.model("users", userSchema);

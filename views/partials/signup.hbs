@@ -5,7 +5,7 @@
       class="close" title="Close Modal">&times;</span>
       
         <!-- Modal Content -->
-        <form action="/register-user" class="needs-validation modal-content animate" method="POST" enctype="multipart/form-data" novalidate>
+        <form action="/signup" class="needs-validation modal-content animate" method="POST" enctype="multipart/form-data" novalidate>
           <div class="imgcontainer">
             Sign up
           </div>
@@ -57,7 +57,7 @@
       
           <div class="container" style="background-color:#f1f1f1">
             <button type="button" onclick="document.getElementById('id02').style.display='none'" class="modal-btn cancelbtn">Cancel</button>
-            <span class="psw">Already have an account? <a href="#">Login</a></span>
+            <span class="psw">Already have an account?</span><button class="psw" onclick="document.getElementById('id01')">Login</button>
           </div>
 
       </div>
@@ -67,3 +67,4 @@
 
 
        <script src="../javascript/signup.js"></script>
+

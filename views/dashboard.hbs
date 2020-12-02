@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Molle:ital@1&display=swap" rel="stylesheet"> 
 </head>
 <div class="fixed-top">
-{{> header}}
+{{> header user}}
 </div>
 <body>
     <div class="container">
@@ -25,10 +25,11 @@
                 <div class="card text-center"  style="height: 100vh">
 
                     <div class="card-body"  style="margin-top: 10rem">
-                        <h2 class="display-4">Hello,  {{data.fname}}!</h2>
+                        <h2 class="display-4">Hello,  {{user.username}}!</h2>
                         <p class="card-text">Welcome to your user dashboard.</p>
                         <br>
                         <a href="room_listing" class="modal-btn">Go somewhere</a>
+                        <a href="profile" class="modal-btn">Your profile</a>
                     </div>
 
                 </div>
