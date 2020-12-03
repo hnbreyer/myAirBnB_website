@@ -23,7 +23,10 @@ function onHttpStart() {
 app.engine('.hbs', hbs({ extname: '.hbs'}));
 app.set('view engine', '.hbs');
 app.set('views', __dirname + '/views');
+
+//Static folders
 app.use(express.static("views"));
+app.use(express.static("public"));
 
 
 app.use('/', indexRouter);

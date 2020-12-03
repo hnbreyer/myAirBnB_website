@@ -1,14 +1,32 @@
 const express = require("express");
 var nodemailer = require("nodemailer");
-var multer = require("multer");
+const multer = require("multer");
+const fs = require('fs');
+const path = require("path");
 const app = express.Router();
-var upload = multer();
+//const multerFunction = multer();
 const Usr = require('../models/usersModel');
 const Listing = require('../models/listingModel');
 const clientSessions = require("client-sessions");
+const { pathToFileURL } = require("url");
+const PHOTODIR = "./public/photos/";
 
 //const { try } = require("bluebird");
 //const server = require('../server');
+
+//PHOTO SETTINGS
+if(!fs.existsSync(PHOTODIR)){
+    fs.mkdirSync(PHOTODIR);
+}
+
+const storage = multer.diskStorage({
+    destination: PHOTODIR,
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + path.extname(file.originalname));
+    }
+});
+
+const upload = multer({ storage: storage });
 
 app.use(clientSessions({
     cookieName: "session",
@@ -48,11 +66,27 @@ app.get("/", function(req, res){
 });
 
 app.get("/room_listing", function(req, res){
-    res.render('room_listing', {user: req.session.usrSesh, layout: false});
+    Listing.find()
+    .lean()
+    .exec()
+    .then((listings) => {
+        res.render("room_listing", {listings: listings, hasListings: !!listings.length, user:req.session.usrSesh, layout:false});
+    });
+});
+
+app.post("/room_listing/Search", upload.none(), function(req, res){
+    Listing.find({
+        location: req.body.destination
+    })
+    .lean()
+    .exec()
+    .then((locations)=>{
+        res.render("room_listing", {locations: locations, hasLocation: !!locations.length, layout:false});
+    });
 });
 
 app.get("/details_page", function(req, res){
-    res.render('details_page', {user: req.session.usrSesh, layout: false});
+    res.render('details_page', { user: req.session.usrSesh, layout: false});
 });
 
 app.get("/owner_upload", function(req, res){
@@ -312,14 +346,14 @@ app.get("/admin_listings/Edit/:listingid",  checkLogin, checkAdmin, function(req
 });
 
 
-app.post("/admin_listings/Edit", upload.none(), checkLogin, checkAdmin, function(req, res){
+app.post("/admin_listings/Edit", upload.single("photo"), checkLogin, checkAdmin, function(req, res){
     const listing = new Listing({
         _id: req.body.id,
         listingName: req.body.listingname,
         location: req.body.location,
         price: req.body.price,
         details: req.body.details,
-        filename: req.body.photo
+        filename: req.file.filename
     });
 
     if(req.body.edit === "1"){
@@ -337,10 +371,12 @@ app.post("/admin_listings/Edit", upload.none(), checkLogin, checkAdmin, function
 
     } else {
         //adding
-        listing.save((err)=>{ console.log("There was an error saving listing: " + err)});
+        listing.save()
+        .then((err)=>{ console.log("There was an error saving listing: " + err)});
     };
 
     res.redirect("/admin_listings");
+    //res.render("admin_listings", {user: req.session.usrSesh, layout: false});
 });
 
 

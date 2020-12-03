@@ -376,8 +376,6 @@ section{
     z-index: -1;
 }
 
-
-
 .place-image{
     width: 100%;
     height: 100%;
@@ -405,6 +403,24 @@ section{
 .rating{
     color: rgba(238, 108, 77, 1);
 }
+
+/*Stays*/
+
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+
+/* .image-wrap{
+    width: 300px;
+    padding: 15px;
+}
+
+.stay-image{
+    height: 210px;
+    width: 100%;
+} */
 
 /*Special offer*/
 .offer{

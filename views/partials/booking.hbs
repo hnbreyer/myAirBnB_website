@@ -1,15 +1,15 @@
         <section class="booking">
             <div class="container">
-                <form action="" class="form">
+                <form action="/room_listing/Search" class="form" method="POST" enctype="multipart/form-data">
                     <div class="input-group">
                         <label for="destination" class="input-label">Destination</label>
                         <select name="destination" id="destination" class="options">
                             <!--disabled selected-->
                             <option value="" default>Select city</option>
-                            <option value="">Toronto</option>
-                            <option value="">Montreal</option>
-                            <option value="">Vancouver</option>
-                            <option value="">Calgary</option>
+                            <option value="Toronto, ON">Toronto, ON</option>
+                            <option value="Montreal, QC">Montreal, QC</option>
+                            <option value="Vancouver, BC">Vancouver, BC</option>
+                            <option value="Banff, AB">Banff, AB</option>
                             
                         </select>
                     </div>
@@ -29,7 +29,7 @@
                         <label for="children" class="input-label">Children</label>
                         <input type="text" class="input" id="children">
                     </div>
-                    <button type="submit" class="btn form-btn btn-gradient">Search
+                    <button type="submit" id="destButton" value="find" class="btn form-btn btn-gradient">Search
                     </button>
                 </form>
             </div>

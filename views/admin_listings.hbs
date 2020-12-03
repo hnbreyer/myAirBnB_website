@@ -19,68 +19,46 @@
 {{> header user}}
 </div>
 <body>
+
+<section class="stays">
     <div class="container">
+        <h5 class="section-head">
+            <span class="heading">Listings</span>
+        </h5>
 
-              <div class="" >
-                <div class="card text-center"  style="height: 100vh">
+        <br>
+        <a href="/admin_listings/Edit" class="modal-btn">Add a listing</a>
+        <br><br>
 
-                    <div class="card-body"  style="margin-top: 10rem">
-                        <h2 class="display-4">Listings</h2>
-                        {{!-- <p class="card-text">Listings</p> --}}
+        <div class="row">
+            {{#if hasListings}} {{#each listings}}
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                    <img src="/photos/{{filename}}" alt="" class="card-img-top img-fluid"/>
+
+                    <div class="card-body">
+                        <h4 class="card-title">{{listingName}}, {{location}}</h4>
+                        <p class="card-text">Price: {{price}}</p>
+                        <div class="row justify-content-center">
+                        <button class=" col-3 btn-secondary btn-sm" type="submit">
+                            <a href="/admin_listings/Delete/{{_id}}">Delete</a>
+                        </button> 
                         <br>
-                        <a href="/admin_listings/Edit" class="modal-btn">Add a listing</a>
-                        <br>
-                        <br>
+                       <button class="col-3 btn-secondary btn-sm" type="submit">
+                           <a href="/admin_listings/Edit/{{_id}}">Edit</a>
+                       </button> 
+                       </div>
 
-                        {{#if hasListings}}
-                            <table border="1">
-                                <thead>
-                                    <tr>
-                                        <td>Name</td>
-                                        <td>Location</td>
-                                        <td>Price</td>
-                                        <td>Filename</td>
-                                        <td>&nbsp;</td>
-                                        <td>&nbsp;</td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                    {{#each listings}}
-                                        <td>{{listingName}}</td>
-                                        <td>{{location}}</td>
-                                        <td>{{price}}</td>
-                                        <td>{{filename}}</td>
-                                        <td><a href="/admin_listings/Edit/{{_id}}">Edit</a></td>
-                                        <td><a href="/admin_listings/Delete/{{_id}}">Delete</a></td>
-                                        </tr>   
-                                    {{/each}}
-                                </tbody>
-                            </table>
 
-                        {{else}}
-                            <br><p>No data found.</p><br>
-                        {{/if}}
-                        {{!-- <a href="admin_listings" class="modal-btn">Edit</a>
-                        <a href="admin_listings" class="modal-btn">Remove</a> --}}
-                        
-
-                  
                     </div>
-
                 </div>
-         
-              
-              
-        
-   
-    
-
-        
+            </div>
+            {{/each}}{{/if}}
+        </div>
 
 
     </div>
-    </div>
+</section>
 
 {{!-- <div class="fixed-bottom"> --}}
 
