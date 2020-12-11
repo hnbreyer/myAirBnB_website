@@ -478,7 +478,8 @@ app.post("/admin_listings/Edit", upload.single("photo"), checkLogin, checkAdmin,
         location: req.body.location,
         price: req.body.price,
         details: req.body.details,
-        filename: req.file.filename
+        filename: req.file.filename,
+        host: req.body.host
     });
 
     if(req.body.edit === "1"){
@@ -489,7 +490,8 @@ app.post("/admin_listings/Edit", upload.single("photo"), checkLogin, checkAdmin,
                 location: listing.location,
                 price: listing.price,
                 details: listing.details,
-                filename: listing.filename
+                filename: listing.filename,
+                host: req.body.host
             }}
             ).exec()
             .then((err)=>{ console.log("There was an error editing listing: " + err)});
