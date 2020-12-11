@@ -1,9 +1,17 @@
 {
     "cSpell.ignoreWords": [
+        "admindashboard",
+        "calculate",
+        "checkin",
+        "cleaningfee",
         "listingid",
         "listingname",
         "photodir",
+        "reserv",
+        "servicefee",
         "sesh",
+        "totalprice",
+        "userid",
         "usr"
     ]
 }

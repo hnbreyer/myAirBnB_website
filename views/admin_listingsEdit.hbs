@@ -10,8 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     {{!-- Custom CSS  --}}
     <link rel="stylesheet" href="/css/style2.css">
-    <link rel="stylesheet" href="/css/signup.css">
-    {{!-- <link rel="stylesheet" href="css/style.css"> --}}
+   {{!-- Google Fonts --}}
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css2?family=Molle:ital@1&display=swap" rel="stylesheet"> 
 </head>
@@ -22,58 +21,45 @@
     <div class="container">
 
               <div class="" >
-                <div class="card text-center"  style="height: 100vh">
+                <div class=""  style="height: 100vh">
 
                     <div class="card-body"  style="margin-top: 10rem">
-                        <h2 class="display-4">Listings editor</h2>
-                        {{!-- <p class="card-text">Listings</p> --}}
-                        <br>
-                       <form method="POST" action="/admin_listings/Edit" enctype="multipart/form-data">
+                      
+                       <form method="POST" class="form-group" action="/admin_listings/Edit" enctype="multipart/form-data">
+                       <div class="form-row justify-content-center">
+                            
+  
+                           <div class="col-8">
+                                <h4 class="display-4">Listings editor</h4>
+                                <br>
                             {{#if listings._id}}
                                 <input type="hidden" name="id" value="{{listings._id}}"/>
                                 <input type="hidden" name="edit" value="1" />
                                 <h4>Editing listing: {{listings.listingName}}</h4>
                             {{else}}
-                                {{!-- <input type="hidden" name="id" value="" /> --}}
                                 <input type="hidden" name="edit" value="0"/>
                             {{/if}}
-                            <label>Listing name</label><input type="text" name="listingname" value="{{listings.listingName}}"><br>
-                            <label>Location</label><input type="text" name="location" value="{{listings.location}}"><br>
-                            <label>Price</label><input type="number" name="price" value="{{listings.price}}"><br>
-                            <label>Details</label><input type="text" name="details" value="{{listings.details}}"><br>
-                            <label>Photo</label><input type="file" name="photo" id="photo"><br>
-                            <label></label><button type="submit" name="submit">Submit</button>
+                            <label class="label">Listing name</label><input class="form-control" type="text" name="listingname" value="{{listings.listingName}}" required><br>
+                            <label>Location</label><input class="form-control" type="text" name="location" value="{{listings.location}}" required><br>
+                            <label>Price</label><input class="form-control" type="number" name="price" value="{{listings.price}}" required><br>
+                            <label>Details</label><input class="form-control" type="text" name="details" value="{{listings.details}}" required><br>
+                            <label>Host</label><input class="form-control" type="text" name="host" value="{{listings.host}}" required><br>
+                            <label>Photo</label><input class="form-control-file" type="file" name="photo" id="photo" required><br>
+                            
+                            <label></label><button class="btn-secondary btn-lg" type="submit" name="submit">Submit</button>
+                           </div>
+                       </div>
                        </form>
-                        
-                  
-
-
-                        {{!-- <a href="admin_listings" class="modal-btn">Edit</a>
-                        <a href="admin_listings" class="modal-btn">Remove</a> --}}
-                        
-
                   
                     </div>
 
                 </div>
          
-              
-              
-        
-   
-    
-
-        
-
-
     </div>
     </div>
 
-{{!-- <div class="fixed-bottom"> --}}
 
 {{> footer}}
-{{!-- </div> --}}
-
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

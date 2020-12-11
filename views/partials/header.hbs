@@ -12,19 +12,25 @@
                     <li class="nav-item">
                         <a href="/" class="nav-link">Home</a>
                     </li>
+                     {{#if isAdmin}}
+
                     <li class="nav-item">
-                        <a href="/owner_upload" class="nav-link">Add listing</a>
+                        <a href="/admindashboard" class="nav-link">Dashboard</a>
                     </li>
-                    {{#if username}}
                         Welcome {{username}}! | <a href="/logout">Log out</a>
+
+                        {{else if username}}
+                        Welcome {{username}}! | <a href="/logout">Log out</a>
+                    <li class="nav-item">
+                        <a href="/dashboard" class="nav-link">Dashboard</a>
+                    </li>
+                    
                     {{else}}
                     <li class="nav-item">
                         <a href="/signup" class="nav-link sign-up">Sign up</a>
-                        <!--<button class="modal-btn" onclick="document.getElementById('id02').style.display='block'">Sign up</button> -->
                     </li>
                     <li class="nav-item">
                         <a href="/login" class="nav-link login">Login</a>
-                        <!-- <button class="modal-btn" onclick="document.getElementById('id01').style.display='block'">Login</button> -->
                     </li>
                     {{/if}}
                 </ul>

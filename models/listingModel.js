@@ -7,8 +7,10 @@ const listingSchema = new mongoose.Schema({
         type: String,
         unique: true},
     "price": Number,
+    "servicefee": Number,
     "location": String,
     "details": String,
+    "host": String,
     "filename": {
         type: String,
         unique: true

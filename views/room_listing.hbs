@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     {{!-- Custom CSS --}}
     <link rel="stylesheet" href="/css/room_listing_style.css">
-    <link rel="stylesheet" href="/css/signup.css">
+    {{!-- Google Fonts --}}
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css2?family=Molle:ital@1&display=swap" rel="stylesheet"> 
 </head>
@@ -22,7 +22,6 @@
         <div class="topBanner">
             <div class="container">
                 <div class="main-heading">
-                     <!-- <h1 class="title">Stays</h1> -->
                     <h2 class="subtitle">Stays</h2>
                 </div>
             </div>
@@ -41,18 +40,11 @@
                      {{#if hasListings}} {{#each listings}}
                                          <div class="col-md-6 col-lg-4">
                         <div class="card">
-                            <img src="/photos/{{filename}}" alt="" class="card-img-top image-fluid">                        
-                                
-                                <!-- <a href="#">
-                                    <i class="far fa-heart"></i>
-                                </a> -->
-                            
-                            
-                            
+                            <img src="/photos/{{filename}}" alt="" class="card-img-top img-thumbnail">                   
                         
                             <div class="card-body">
                                 <div class="row align-items-center justify-content-start">
-                                <h1 class="col-9 card-title"><a href="./details_page">{{listingName}}</a></h1>
+                                <h1 class="col-9 card-title"><a href="/details_page/{{_id}}">{{listingName}}</a></h1>
                                 <div class="favorite">
                                     <a href="#"><i class="col-3 far fa-heart"></i></a>
                                 </div>
@@ -72,7 +64,7 @@
                                 <p class="card-text">
                                     {{details}}
                                 </p>
-                                <!-- <a href="#" class="btn stays-btn">Book now &rarr;</a> -->
+ 
                             </div>
                         </div>
                     </div>
@@ -81,17 +73,10 @@
                     <div class="col-md-6 col-lg-4">
                         <div class="card">
                             <img src="/photos/{{filename}}" alt="" class="card-img-top image-fluid">                        
-                                
-                                <!-- <a href="#">
-                                    <i class="far fa-heart"></i>
-                                </a> -->
-                            
-                            
-                            
-                        
+
                             <div class="card-body">
                                 <div class="row align-items-center justify-content-start">
-                                <h1 class="col-9 card-title"><a href="./details_page">{{listingName}}</a></h1>
+                                <h1 class="col-9 card-title"><a href="/details_page/{{_id}}">{{listingName}}</a></h1>
                                 <div class="favorite">
                                     <a href="#"><i class="col-3 far fa-heart"></i></a>
                                 </div>
@@ -111,7 +96,6 @@
                                 <p class="card-text">
                                     {{details}}
                                 </p>
-                                <!-- <a href="#" class="btn stays-btn">Book now &rarr;</a> -->
                             </div>
                         </div>
                     </div>
@@ -120,11 +104,6 @@
      
             </div>
         </section>
-
-      
-
-
-       
 
     </main>
 

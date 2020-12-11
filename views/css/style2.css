@@ -149,7 +149,7 @@ section{
 .nav-link{
     display: block;  /*allows me to use padding, top, bottom*/
     color: white;
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -163,8 +163,8 @@ section{
 .password,
 .signup-email,
 .fname,
-.lname,
-.birthday {
+.lname
+ {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -589,6 +589,32 @@ section{
   @keyframes fade {
     from {opacity: .4}
     to {opacity: 1}
+  }
+
+  /*Detail listings*/
+  .pic-detail{
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .checkout-container{
+      width: 100%;
+      position: relative;
+      margin: 0;
+      margin-bottom: 20px;
+  }
+
+  .checkout-form{
+      margin: 10px;
+      border: 0.1px solid;
+      border-radius: 5px;
+  }
+
+  .check-in,
+  .check-out{
+      display: block;
+      margin: 20px 10% 0 10%;
+      width: 80%;
   }
 
 /*Footer*/
